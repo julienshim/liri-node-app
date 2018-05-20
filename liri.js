@@ -55,18 +55,27 @@ var nodeArgs = process.argv;
 //   }
 // });
 
-// var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=40e9cece";
+var movieName = "mulan";
 
-// // This line is just to help us debug against the actual URL.
+var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+
+// This line is just to help us debug against the actual URL.
 // console.log(queryUrl);
 
-// request(queryUrl, function(error, response, body) {
+request(queryUrl, function(error, response, body) {
 
-//     // If the request is successful
-//     if (!error && response.statusCode === 200) {
+    // If the request is successful
+    if (!error && response.statusCode === 200) {
 
-//         // Parse the body of the site and recover just the imdbRating
-//         // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
-//         console.log("Release Year: " + JSON.parse(body).Year);
-//     }
-// });
+        // Parse the body of the site and recover just the imdbRating
+        // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
+        // console.log(JSON.parse(body));
+        console.log("Movie Title: " + JSON.parse(body).Title);
+        console.log("Release Date: " + JSON.parse(body).Year);
+        console.log("IMDB Rating: " + JSON.parse(body).Ratings[0].Value);
+        console.log("Rotten Tomatoes Rating: " + JSON.parse(body).Ratings[1].Value);
+        console.log("Country: " + JSON.parse(body).Country);
+        console.log("Plot: " + JSON.parse(body).Plot);
+        console.log("Actors: " + JSON.parse(body).Actors);
+    }
+});
