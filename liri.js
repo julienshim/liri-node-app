@@ -93,29 +93,67 @@ function omdbResults(movieName){
     })
 }
 
-switch (operator) {
-    case "my-tweets":
-        console.log("\n");
+function tweetHeader() {
+    console.log("\n");
         console.log("===================================================================================================================");
         console.log("# My Latest 20 Tweets");
         console.log("===================================================================================================================");
         console.log("\n");
+}
+
+function spotifyHeader() {
+    console.log("\n");
+    console.log("===================================================================================================================");
+    console.log("# Spotify Song Info");
+    console.log("===================================================================================================================");
+    console.log("\n");
+}
+
+function movieHeader() {
+    console.log("\n");
+    console.log("===================================================================================================================");
+    console.log("# OMDb Movie Info");
+    console.log("===================================================================================================================");
+    console.log("\n");
+}
+
+function doWhatItSays() {
+    fs.readFile("random.txt", "utf8", function(err, data) {
+        if(err) {
+            return console.log(error);
+        }
+        var dataArr = data.split(", ");
+        var randomOperator = dataArr[0];
+        var randomString = dataArr[1];
+    
+        switch (randomOperator) {
+            case "my-tweets":
+                tweetHeader();
+                twitterStatuses();
+                break;
+            case "spotify-this-song":
+                spotifyHeader();
+                spotifySearch(randomString);
+                break;
+            case "movie-this":
+                movieHeader();
+                omdbResults(randomString);
+                break;
+        }
+    })
+}
+
+switch (operator) {
+    case "my-tweets":
+        tweetHeader();
         twitterStatuses();
         break;
     case "spotify-this-song":
-        console.log("\n");
-        console.log("===================================================================================================================");
-        console.log("# Spotify Song Info");
-        console.log("===================================================================================================================");
-        console.log("\n");
+        spotifyHeader();
         spotifySearch(userInputString.substring(1));
         break;
     case "movie-this":
-        console.log("\n");
-        console.log("===================================================================================================================");
-        console.log("# OMDb Movie Info");
-        console.log("===================================================================================================================");
-        console.log("\n");
+        movieHeader();
         if ((process.argv[3] === undefined) && (userInput.length <= 3)) {
             omdbResults("Mr.+Nobody");
         } else {
@@ -123,7 +161,7 @@ switch (operator) {
         }
         break;
     case "do-what-it-says":
-        // lotto();
+        doWhatItSays();
         break;
 }
 
@@ -138,7 +176,8 @@ function liriError() {
     console.log("/                                   and displays them.                                                            /");
     console.log("/    spotify-this-song [<song>]     Searches Spotify and returns basic information about specified song.          /");
     console.log("/    movie-this [<movie>]           Searches OMDb and returns basic information about specified movie.            /");
-    console.log("/    do-what-it-says                Reads and executes the instructions contained in random.txt.                  /");
+    console.log("/    do-what-it-says                Reads and executes the instructions contained in random.txt formatted as      /");
+    console.log("/                                   follows: <command>, [<args>]                                                  /");
     console.log("/                                                                                                                 /");
     console.log("///////////////////////////////////////////////////////////////////////////////////////////////////////////////////");
     console.log("\n");
