@@ -56,7 +56,6 @@ function twitterStatuses() {
     });
 }
 
-
 function omdbResults(movieName){
 
     var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
@@ -72,13 +71,19 @@ function omdbResults(movieName){
             // Parse the body of the site and recover just the imdbRating
             // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
             // console.log(JSON.parse(body));
-            console.log("Movie Title: " + JSON.parse(body).Title);
-            console.log("Release Date: " + JSON.parse(body).Year);
-            console.log("IMDB Rating: " + JSON.parse(body).Ratings[0].Value);
-            console.log("Rotten Tomatoes Rating: " + JSON.parse(body).Ratings[1].Value);
-            console.log("Country: " + JSON.parse(body).Country);
-            console.log("Plot: " + JSON.parse(body).Plot);
-            console.log("Actors: " + JSON.parse(body).Actors);
+            var movieResponse = JSON.parse(body);
+         
+            console.log("Movie Title: " + movieResponse.Title);
+            console.log("Release Date: " + movieResponse.Year);
+            console.log("IMDB Rating: " + movieResponse.Ratings[0].Value);
+            if (movieResponse.Ratings[1] === undefined) {
+                console.log("Rotten Tomatoes Rating: Not available for this movie title.")
+              } else {
+                console.log("Rotten Tomatoes Rating: " + movieResponse.Ratings[1].Value);
+              }
+            console.log("Country: " + movieResponse.Country);
+            console.log("Plot: " + movieResponse.Plot);
+            console.log("Actors: " + movieResponse.Actors);
         }
     })
 }
@@ -105,8 +110,8 @@ switch (operator) {
         console.log("===================================================================================================================");
         console.log("# OMDb Movie Info");
         console.log("===================================================================================================================");
-        console.log("\n");
         omdbResults(userInputString);
+        console.log("\n");
         break;
     case "do-what-it-says":
         // lotto();
