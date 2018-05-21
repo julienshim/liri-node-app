@@ -1,10 +1,10 @@
 require('dotenv').config();
 
+var fs = require("fs");
+var keys = require("./keys.js");
 var Spotify = require('node-spotify-api');
 var Twitter = require('twitter');
 var request = require('request');
-var fs = require("fs");
-var keys = require("./keys.js");
 
 var spotify = new Spotify(keys.spotify);
 var client = new Twitter(keys.twitter); 
@@ -72,18 +72,23 @@ function omdbResults(movieName){
             // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
             // console.log(JSON.parse(body));
             var movieResponse = JSON.parse(body);
-         
-            console.log("Movie Title: " + movieResponse.Title);
-            console.log("Release Date: " + movieResponse.Year);
-            console.log("IMDB Rating: " + movieResponse.Ratings[0].Value);
-            if (movieResponse.Ratings[1] === undefined) {
-                console.log("Rotten Tomatoes Rating: Not available for this movie title.")
-              } else {
-                console.log("Rotten Tomatoes Rating: " + movieResponse.Ratings[1].Value);
-              }
-            console.log("Country: " + movieResponse.Country);
-            console.log("Plot: " + movieResponse.Plot);
-            console.log("Actors: " + movieResponse.Actors);
+            if (movieResponse.Title === undefined) {
+                console.log("Movie not found in the OMDb database. Try another search.")
+            } else {
+                console.log("Movie Title: " + movieResponse.Title);
+                console.log("Release Date: " + movieResponse.Year);
+                console.log("IMDB Rating: " + movieResponse.Ratings[0].Value);
+                if (movieResponse.Ratings[1] === undefined) {
+                    console.log("Rotten Tomatoes Rating: Not available for this movie title.")
+                } else {
+                    console.log("Rotten Tomatoes Rating: " + movieResponse.Ratings[1].Value);
+                }
+                console.log("Country: " + movieResponse.Country);
+                console.log("Plot: " + movieResponse.Plot);
+                console.log("Actors: " + movieResponse.Actors);
+                
+            }
+            console.log("\n");
         }
     })
 }
@@ -103,15 +108,19 @@ switch (operator) {
         console.log("# Spotify Song Info");
         console.log("===================================================================================================================");
         console.log("\n");
-        spotifySearch(userInputString);
+        spotifySearch(userInputString.substring(1));
         break;
     case "movie-this":
         console.log("\n");
         console.log("===================================================================================================================");
         console.log("# OMDb Movie Info");
         console.log("===================================================================================================================");
-        omdbResults(userInputString);
         console.log("\n");
+        if ((process.argv[3] === undefined) && (userInput.length <= 3)) {
+            omdbResults("Mr.+Nobody");
+        } else {
+            omdbResults(userInputString.substring(1));
+        }
         break;
     case "do-what-it-says":
         // lotto();
