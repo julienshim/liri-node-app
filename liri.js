@@ -9,17 +9,19 @@ var request = require('request');
 var spotify = new Spotify(keys.spotify);
 var client = new Twitter(keys.twitter); 
 
-var operator = process.argv[2];
+var operator = process.argv[2]; //command variable
 var userInput = process.argv;
 var userInputString = "";
 
-for (var i = 3; i < userInput.length; i++) {
+for (var i = 3; i < userInput.length; i++) { //userInput to userInputString handling
     if (i > 2 && i < userInput.length) {
         userInputString = userInputString + "+" + userInput[i];
     } else {
         userInputString += userInput[i];
     }
 }
+
+//INTENTIONAL USER FUNCTIONS
 
 function spotifySearch(song){
     spotify.search({type: 'track', query: song, popularity: 100, limit: 1}, function(err, data) {
@@ -48,10 +50,9 @@ function twitterStatuses() {
         //If no error
         if (!error) {
             for (var i = 0; i < tweets.length; i++){
-            console.log(tweets[i].text);
-            console.log(tweets[i].created_at);
-            console.log("\n");
+            console.log(i+1 + ". " + tweets[i].created_at.replace(/ \+0000/g, "") + " - " + tweets[i].text);
             }
+            console.log("\n");
         }
     });
 }
@@ -93,6 +94,8 @@ function omdbResults(movieName){
     })
 }
 
+//RESULTS HEADERS
+
 function tweetHeader() {
     console.log("\n");
         console.log("===================================================================================================================");
@@ -116,6 +119,8 @@ function movieHeader() {
     console.log("===================================================================================================================");
     console.log("\n");
 }
+
+//DO-WHAT-IT-SAYS FUNCTION
 
 function doWhatItSays() {
     fs.readFile("random.txt", "utf8", function(err, data) {
@@ -143,46 +148,61 @@ function doWhatItSays() {
     })
 }
 
+//Operating checking and handling
+
 switch (operator) {
     case "my-tweets":
-        tweetHeader();
-        twitterStatuses();
+        if (userInput.length > 3) {
+            liriError("liri.js " + operator + userInputString.replace(/\+/g, " "));
+        } else {
+            tweetHeader();
+            twitterStatuses();
+        }
         break;
     case "spotify-this-song":
         spotifyHeader();
-        spotifySearch(userInputString.substring(1));
+        spotifySearch(userInputString.substring(1)); //Improves search results
         break;
     case "movie-this":
         movieHeader();
         if ((process.argv[3] === undefined) && (userInput.length <= 3)) {
             omdbResults("Mr.+Nobody");
         } else {
-            omdbResults(userInputString.substring(1));
+            omdbResults(userInputString.substring(1)); //Improve search results
         }
         break;
     case "do-what-it-says":
-        doWhatItSays();
+        if (userInput.length > 3) {
+            liriError("liri.js " + operator + userInputString.replace(/\+/g, " "));
+        } else {
+            doWhatItSays();
+        }
         break;
+    default: 
+        liriError("liri.js " + operator);
 }
 
-function liriError() {
-    console.log("///////////////////////////////////////////////////////////////////////////////////////////////////////////////////");
-    console.log("/                                                                                                                 /");
-    console.log("/    liri.js: Invalid command or argument, or no command was specified                                            /");
-    console.log("/                                                                                                                 /");
-    console.log("/    Usage: node liri.js <command> [<args>]                                                                       /");
-    console.log("/                                                                                                                 /");
-    console.log("/    my-tweets [<username>]         Retrieves last 20 tweets from hgd_wd test ('Hong Gildong) twittter account    /");
-    console.log("/                                   and displays them.                                                            /");
-    console.log("/    spotify-this-song [<song>]     Searches Spotify and returns basic information about specified song.          /");
-    console.log("/    movie-this [<movie>]           Searches OMDb and returns basic information about specified movie.            /");
-    console.log("/    do-what-it-says                Reads and executes the instructions contained in random.txt formatted as      /");
-    console.log("/                                   follows: <command>, [<args>]                                                  /");
-    console.log("/                                                                                                                 /");
-    console.log("///////////////////////////////////////////////////////////////////////////////////////////////////////////////////");
+//Run file with no command or invalid command or argument handling
+
+function liriError(errorMessage) {
+    console.log("\n");
+    console.log("/////////////////////////////////////////////////////////////////////////////////////////////////////////////////");
+    console.log("                                                                                                                 ");
+    console.log("    " + errorMessage+": Invalid command or argument, or no command was specified                                    ");
+    console.log("                                                                                                                 ");
+    console.log("    Usage: node liri.js <command> [<args>]                                                                       ");
+    console.log("                                                                                                                 ");
+    console.log("    my-tweets [<username>]         Retrieves last 20 tweets from hgd_wd test ('Hong Gildong) twittter account    ");
+    console.log("                                   and displays them.                                                            ");
+    console.log("    spotify-this-song [<song>]     Searches Spotify and returns basic information about specified song.          ");
+    console.log("    movie-this [<movie>]           Searches OMDb and returns basic information about specified movie.            ");
+    console.log("    do-what-it-says                Reads and executes the instructions contained in random.txt formatted as      ");
+    console.log("                                   follows: <command>, [<args>]                                                  ");
+    console.log("                                                                                                                 ");
+    console.log("/////////////////////////////////////////////////////////////////////////////////////////////////////////////////");
     console.log("\n");
 }
 
 if ((operator === undefined) && (userInput.length <= 2)) {
-    liriError();
+    liriError("lirl.js");
 }
