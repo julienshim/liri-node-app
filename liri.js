@@ -98,10 +98,10 @@ function omdbResults(movieName){
 
 function tweetHeader() {
     console.log("\n");
-        console.log("===================================================================================================================");
-        console.log("# My Latest 20 Tweets");
-        console.log("===================================================================================================================");
-        console.log("\n");
+    console.log("===================================================================================================================");
+    console.log("# My Latest 20 Tweets");
+    console.log("===================================================================================================================");
+    console.log("\n");
 }
 
 function spotifyHeader() {
@@ -154,32 +154,47 @@ switch (operator) {
     case "my-tweets":
         if (userInput.length > 3) {
             liriError("liri.js " + operator + userInputString.replace(/\+/g, " "));
+            fs.appendFile('log.txt', "User Input Error: liri.js " + operator + userInputString.replace(/\+/g, " ") + " is an invalid command or argument.\n");
         } else {
+            fs.appendFile('log.txt', "User command: my-tweets \n");
             tweetHeader();
             twitterStatuses();
         }
         break;
     case "spotify-this-song":
         spotifyHeader();
-        spotifySearch(userInputString.substring(1)); //Improves search results
+        if ((process.argv[3] === undefined) && (userInput.length <= 3)) {
+            fs.appendFile('log.txt', "User Input Error: User command: " + operator + " User arguments: null.\n");
+            console.log("Error: User is missing an argument after the 'spotify-this-song' command.\n");
+        } else {
+            fs.appendFile('log.txt', "User command: " + operator + ". User arguments: " + userInputString.replace(/\+/g, " ") + "\n");
+            spotifySearch(userInputString.substring(1)); //Improves search results
+        }
         break;
     case "movie-this":
         movieHeader();
         if ((process.argv[3] === undefined) && (userInput.length <= 3)) {
+            fs.appendFile('log.txt', "User Input Error: User command: " + operator + " User arguments: null. Results for \"Mr. Nobody\" automatically shown.\n");
+            console.log("Error Handling: No arugment input by user. Results for \"Mr. Nobody\" automatically shown.\n");
             omdbResults("Mr.+Nobody");
         } else {
+            fs.appendFile('log.txt', "User command: " + operator + ". User arguments: " + userInputString.replace(/\+/g, " ") + "\n");
             omdbResults(userInputString.substring(1)); //Improve search results
         }
         break;
     case "do-what-it-says":
         if (userInput.length > 3) {
             liriError("liri.js " + operator + userInputString.replace(/\+/g, " "));
+            fs.appendFile('log.txt', "User Input Error: liri.js " + operator + userInputString.replace(/\+/g, " ") + " is an invalid command or argument. \n");
         } else {
             doWhatItSays();
         }
         break;
     default: 
-        liriError("liri.js " + operator);
+        if (operator !== undefined) { //Makes sure operator is defined as we already have an error handler for undefined (blank)
+            liriError("liri.js " + operator);
+            fs.appendFile('log.txt', "User Input Error: liri.js " + operator + " is an invalid command or argument. \n");
+        }
 }
 
 //Run file with no command or invalid command or argument handling
@@ -204,5 +219,6 @@ function liriError(errorMessage) {
 }
 
 if ((operator === undefined) && (userInput.length <= 2)) {
-    liriError("lirl.js");
+    liriError("liri.js");
+    fs.appendFile('log.txt', "User Input Error: liri.js is an invalid command or argument. \n");
 }

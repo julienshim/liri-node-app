@@ -1,0 +1,6 @@
+User Input Error: liri.js is an invalid command or argument. 
+User Input Error: liri.js help is an invalid command or argument. 
+User Input Error: liri.js my-tweets hgd_wd is an invalid command or argument.
+User Input Error: User command: spotify-this-song User arguments: null.
+User Input Error: User command: movie-this User arguments: null. Results for "Mr. Nobody" automatically shown.
+User Input Error: liri.js do-what-it-says spotify-this-song how deep is your love is an invalid command or argument. 
