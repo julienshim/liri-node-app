@@ -57,3 +57,13 @@ Actors: Ethan Hawke, Uma Thurman, Gore Vidal, Xander Berkeley
 User command: movie-this. User arguments:  star wars empire
 Movie not found in the OMDb database.
 User Input Error: liri.js do-what-it-says go is an invalid command or argument. 
+User Input Error: liri.js is an invalid command or argument. 
+User command: movie-this. User arguments:  gattaca
+Movie Title: Gattaca
+Release Date: 1997
+IMDB Rating: 7.8/10
+Rotten Tomatoes Rating: 82%
+Country: USA
+Plot: A genetically inferior man assumes the identity of a superior one in order to pursue his lifelong dream of space travel.
+Actors: Ethan Hawke, Uma Thurman, Gore Vidal, Xander Berkeley
+User Input Error: liri.js is an invalid command or argument. 
