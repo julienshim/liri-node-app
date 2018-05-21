@@ -4,6 +4,18 @@
 
 LIRI Bot was created for the LIRI Node App homework assignment for Berkeley Coding Bootcamp and features a language interpretation and recognition interface. LIRI is a command line node app that takes in parameters and gives you back data.
 
+**Deployment Requirements**
+
+`npm i` will install the following:
+
+-npm install dotenv
+    **NOTE: user must have own .env file with twitter and spotify API keys**
+-npm install node-spotify-api
+-npm install twitter
+-npm install request
+
+
+
 **Requirements**
 
 - Make it so liri.js can take in one of the following commands: `my-tweets`, `spotify-this-song`, `movie-this`, `do-what-it-says`
