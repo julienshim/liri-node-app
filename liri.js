@@ -157,8 +157,9 @@ switch (operator) {
     case "spotify-this-song":
         resultsHeader("Spotify Song Info");
         if ((process.argv[3] === undefined) && (userInput.length <= 3)) {
-            console.log("Error: User is missing an argument after the 'spotify-this-song' command.\n");
-            fs.appendFile('log.txt', "User Input Error: User command: " + operator + " User arguments: null.\n");
+            console.log("Error Handling: No arugment input by user. Results for \"The Sign\" by Ace of Base automatically shown.\n");
+            spotifySearch("The+Sign+Ace+of+Base");
+            fs.appendFile('log.txt', "Error Handling: No argument input by user. Results for \"The Sign\" by Ace of Base automatically shown.\n");
         } else {
             spotifySearch(userInputString.substring(1)); //Improves search results
             fs.appendFile('log.txt', "User command: " + operator + ". User arguments: " + userInputString.replace(/\+/g, " ") + "\n");
@@ -197,11 +198,11 @@ function liriError(errorMessage) {
     console.log("\n");
     console.log("/////////////////////////////////////////////////////////////////////////////////////////////////////////////////");
     console.log("                                                                                                                 ");
-    console.log("    " + errorMessage+": Invalid command or argument, or no command was specified                                    ");
+    console.log("    " + errorMessage+": Invalid command or argument, or no command was specified                                 ");
     console.log("                                                                                                                 ");
     console.log("    Usage: node liri.js <command> [<args>]                                                                       ");
     console.log("                                                                                                                 ");
-    console.log("    my-tweets [<username>]         Retrieves last 20 tweets from hgd_wd test ('Hong Gildong) twittter account    ");
+    console.log("    my-tweets                      Retrieves last 20 tweets from hgd_wd ('Hong Gildong') test twitter account    ");
     console.log("                                   and displays them.                                                            ");
     console.log("    spotify-this-song [<song>]     Searches Spotify and returns basic information about specified song.          ");
     console.log("    movie-this [<movie>]           Searches OMDb and returns basic information about specified movie.            ");

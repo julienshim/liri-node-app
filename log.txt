@@ -21,7 +21,11 @@ Thu May 17 23:47:23 2018 - Spiderman would be very ineffective in rural areas.
 Thu May 17 23:46:38 2018 - If you wake up because of your alarm clock. You did not sleep enough.
 Thu May 17 23:43:50 2018 - Accents are just different fonts for your voice.
 Thu May 17 23:40:57 2018 - You're younger *now* than you are *now*.
-User Input Error: User command: spotify-this-song User arguments: null.
+Error Handling: No argument input by user. Results for "The Sign" by Ace of Base automatically shown.
+Artist: Ace of Base
+Track name: The Sign
+Song preview: https://p.scdn.co/mp3-preview/4c463359f67dd3546db7294d236dd0ae991882ff?cid=d708666f12fa414ba93b915ac899d183
+Album: The Sign (US Album) [Remastered]
 User Input Error: User command: movie-this User arguments: null. Results for "Mr. Nobody" automatically shown.
 Movie Title: Mr. Nobody
 Release Date: 2009
