@@ -1,6 +1,55 @@
 User Input Error: liri.js is an invalid command or argument. 
 User Input Error: liri.js help is an invalid command or argument. 
-User Input Error: liri.js my-tweets hgd_wd is an invalid command or argument.
+User command: my-tweets 
+Fri May 18 04:27:50 2018 - I wish Twitter would actually read the series of tweets for context before locking this account.
+Fri May 18 00:47:11 2018 - I love coding!
+Fri May 18 00:41:56 2018 - 1986 is as far away as 2050.
+Fri May 18 00:37:41 2018 - ATM fees are like buying your own money.
+Fri May 18 00:37:20 2018 - When you think about it, beef jerky is just a cow raisin.
+Fri May 18 00:30:36 2018 - The best way to get back on your feet is to miss a couple of car payments.
+Fri May 18 00:26:29 2018 - No one has ever been in an empty room.
+Fri May 18 00:18:39 2018 - So hungry.
+Fri May 18 00:17:37 2018 - Watching MLS on TV feels slower than watching MLB on TV.
+Fri May 18 00:09:05 2018 - Coming up with 20 test tweets is difficult.
+Fri May 18 00:08:03 2018 - At a Drive-Thru Window #WhenItsNotOKToSayILoveYou
+Fri May 18 00:02:13 2018 - #IDontTrustPeopleThat say "all y'all's".
+Thu May 17 23:55:42 2018 - I could really go for some fried chicken right now.
+Thu May 17 23:55:18 2018 - This homework is taking forever to setup.
+Thu May 17 23:50:00 2018 - I don't want to sign up for the Twitter Development Platform with my phone number!
+Thu May 17 23:48:04 2018 - Waldo’s parents are probably worried sick.
+Thu May 17 23:47:23 2018 - Spiderman would be very ineffective in rural areas.
+Thu May 17 23:46:38 2018 - If you wake up because of your alarm clock. You did not sleep enough.
+Thu May 17 23:43:50 2018 - Accents are just different fonts for your voice.
+Thu May 17 23:40:57 2018 - You're younger *now* than you are *now*.
 User Input Error: User command: spotify-this-song User arguments: null.
 User Input Error: User command: movie-this User arguments: null. Results for "Mr. Nobody" automatically shown.
-User Input Error: liri.js do-what-it-says spotify-this-song how deep is your love is an invalid command or argument. 
+Movie Title: Mr. Nobody
+Release Date: 2009
+IMDB Rating: 7.9/10
+Rotten Tomatoes Rating: 66%
+Country: Belgium, Germany, Canada, France, USA, UK
+Plot: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
+Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
+User command: do-what-it-says 
+random.txt file command: spotify-this-song. random.txt file argument: "I Want it That Way"
+Artist: Backstreet Boys
+Track name: I Want It That Way
+Song preview: https://p.scdn.co/mp3-preview/e72a05dc3f69c891e3390c3ceaa77fad02f6b5f6?cid=d708666f12fa414ba93b915ac899d183
+Album: The Hits--Chapter One
+User Input Error: liri.js my-tweets hdg_wd is an invalid command or argument.
+User command: spotify-this-song. User arguments:  let it be
+Artist: The Beatles
+Track name: Let It Be - Remastered
+Song preview: Preview for this track is not available.
+Album: Let It Be (Remastered)
+User command: movie-this. User arguments:  gattaca
+Movie Title: Gattaca
+Release Date: 1997
+IMDB Rating: 7.8/10
+Rotten Tomatoes Rating: 82%
+Country: USA
+Plot: A genetically inferior man assumes the identity of a superior one in order to pursue his lifelong dream of space travel.
+Actors: Ethan Hawke, Uma Thurman, Gore Vidal, Xander Berkeley
+User command: movie-this. User arguments:  star wars empire
+Movie not found in the OMDb database.
+User Input Error: liri.js do-what-it-says go is an invalid command or argument. 
