@@ -88,9 +88,11 @@ function omdbResults(movieName){
                     fs.appendFile('log.txt', "Rotten Tomatoes Rating: " + movieResponse.Ratings[1].Value + "\n");
                 }
                 console.log("Country: " + movieResponse.Country);
+                console.log("Language: " + movieResponse.Language);
                 console.log("Plot: " + movieResponse.Plot);
                 console.log("Actors: " + movieResponse.Actors);
                 fs.appendFile('log.txt', "Country: " + movieResponse.Country + "\n");
+                fs.appendFile('log.txt', "Language: " + movieResponse.Language + "\n");
                 fs.appendFile('log.txt', "Plot: " + movieResponse.Plot + "\n");
                 fs.appendFile('log.txt', "Actors: " + movieResponse.Actors + "\n");
             }

@@ -1,6 +1,8 @@
 User Input Error: liri.js is an invalid command or argument. 
 User Input Error: liri.js help is an invalid command or argument. 
 User command: my-tweets 
+Mon May 21 20:15:19 2018 - Mental note: Keep tweeting until you receive a grade for this homework assignment as the Twitter API can only look back 7 days.
+Mon May 21 20:14:41 2018 - Why is playing console games so addicting?
 Mon May 21 17:04:56 2018 - GIMP is the worst image manipulation program ever.
 Fri May 18 04:27:50 2018 - I wish Twitter would actually read the series of tweets for context before locking this account.
 Fri May 18 00:47:11 2018 - I love coding!
@@ -19,8 +21,6 @@ Thu May 17 23:55:18 2018 - This homework is taking forever to setup.
 Thu May 17 23:50:00 2018 - I don't want to sign up for the Twitter Development Platform with my phone number!
 Thu May 17 23:48:04 2018 - Waldo’s parents are probably worried sick.
 Thu May 17 23:47:23 2018 - Spiderman would be very ineffective in rural areas.
-Thu May 17 23:46:38 2018 - If you wake up because of your alarm clock. You did not sleep enough.
-Thu May 17 23:43:50 2018 - Accents are just different fonts for your voice.
 Error Handling: No argument input by user. Results for "The Sign" by Ace of Base automatically shown.
 Artist: Ace of Base
 Track name: The Sign
@@ -32,6 +32,7 @@ Release Date: 2009
 IMDB Rating: 7.9/10
 Rotten Tomatoes Rating: 66%
 Country: Belgium, Germany, Canada, France, USA, UK
+Language: English, Mohawk
 Plot: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
 Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
 User command: do-what-it-says 
@@ -40,7 +41,7 @@ Artist: Backstreet Boys
 Track name: I Want It That Way
 Song preview: https://p.scdn.co/mp3-preview/e72a05dc3f69c891e3390c3ceaa77fad02f6b5f6?cid=d708666f12fa414ba93b915ac899d183
 Album: The Hits--Chapter One
-User Input Error: liri.js my-tweets hgd_wd is an invalid command or argument.
+User Input Error: liri.js my-tweets hdg_wd is an invalid command or argument.
 User command: spotify-this-song. User arguments:  let it be
 Artist: The Beatles
 Track name: Let It Be - Remastered
@@ -52,6 +53,7 @@ Release Date: 1997
 IMDB Rating: 7.8/10
 Rotten Tomatoes Rating: 82%
 Country: USA
+Language: English, Esperanto
 Plot: A genetically inferior man assumes the identity of a superior one in order to pursue his lifelong dream of space travel.
 Actors: Ethan Hawke, Uma Thurman, Gore Vidal, Xander Berkeley
 User command: movie-this. User arguments:  star wars empire
