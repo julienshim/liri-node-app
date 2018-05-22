@@ -14,8 +14,6 @@ LIRI Bot was created for the LIRI Node App homework assignment for Berkeley Codi
 -npm install twitter
 -npm install request
 
-
-
 **Requirements**
 
 - Make it so liri.js can take in one of the following commands: `my-tweets`, `spotify-this-song`, `movie-this`, `do-what-it-says`
