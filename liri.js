@@ -57,7 +57,7 @@ function twitterStatuses() {
         //If no error
         if (!error) {
             for (var i = 0; i < tweets.length; i++){
-            console.log(i+1 + ". " + tweets[i].created_at.replace(/ \+0000/g, "") + " - " + tweets[i].text); //Get rid of the " +0000 on .creat_at"
+            console.log(i+1 + ". " + tweets[i].created_at.replace(/ \+0000/g, "") + " - " + tweets[i].text); //Get rid of the " +0000" on .created_at
             fs.appendFile('log.txt', tweets[i].created_at.replace(/ \+0000/g, "") + " - " + tweets[i].text + "\n");
             }
             console.log("\n"); //Styling
