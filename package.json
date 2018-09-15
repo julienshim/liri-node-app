@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jerauld/liri-node-app.git"
+    "url": "git+https://github.com/julienshim/liri-node-app.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jerauld/liri-node-app/issues"
+    "url": "https://github.com/julienshim/liri-node-app/issues"
   },
-  "homepage": "https://github.com/jerauld/liri-node-app#readme",
+  "homepage": "https://github.com/julienshim/liri-node-app#readme",
   "dependencies": {
     "dotenv": "^5.0.1",
     "node-spotify-api": "^1.0.7",
