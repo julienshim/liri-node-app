@@ -1,10 +1,10 @@
-# liri-node-app
+# Liri Node App
 
-**Overview**
+## Overview
 
 LIRI Bot was created for the LIRI Node App homework assignment for Berkeley Coding Bootcamp and features a language interpretation and recognition interface. LIRI is a command line node app that takes in parameters and gives you back data.
 
-**Deployment Requirements**
+## Deployment Requirements
 
 `npm i` will install the following:
 
@@ -14,7 +14,7 @@ LIRI Bot was created for the LIRI Node App homework assignment for Berkeley Codi
 -npm install twitter
 -npm install request
 
-**Requirements**
+## Requirements
 
 - Make it so liri.js can take in one of the following commands: `my-tweets`, `spotify-this-song`, `movie-this`, `do-what-it-says`
 - What each command should do:
@@ -23,14 +23,14 @@ LIRI Bot was created for the LIRI Node App homework assignment for Berkeley Codi
     - `node liri.js movie-this '<movie name here>'` This will output the following information to your terminal/bash window: Title of the movie. Year the movie came out. IMDB          Rating of the movie. Rotten Tomatoes Rating of the movie, Country where the movie was produced, Language of the movie. Plot of the movie. Actors in the movie. If the user      doesn't type in a movie in, the program will output data for the movie 'Mr. Nobody." You'll use the request package to retrieve data from the OMDB API.
     - `node liri.js do-what-it-says` Using the `fs` Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands. It should run `spotify-this-song` for "I Want it That Way," as follows the text in `random.txt`.
 
-**BONUS**
+### BONUS
 
 - In addition to logging the data to your terminal/bash window, output the data to a .txt file called `log.txt`. Make sure you append each command you run to the `log.txt` file.       Do not overwrite your file each time you run a command.
 
     *Note:* Also added incorrect command/argument user inputs. 
 
 
-**Usage**
+## Usage
 
 Usage: `node liri.js <command> [<args>]`
 
@@ -49,3 +49,7 @@ Searches OMDb and returns basic information about specified movie.
 `do-what-it-says`
 
 Reads and executes the instructions contained in random.txt formatted as follows: `<command>, [<args>]`  
+
+## Screenshot
+
+<img src="https://raw.githubusercontent.com/julienshim/liri-node-app/master/liri-node-app.png"/>
