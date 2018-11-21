@@ -1,5 +1,4 @@
-# Liri Node App
-
+# LIRI Bot
 ## Overview
 
 LIRI Bot was created for the LIRI Node App homework assignment for Berkeley Coding Bootcamp and features a language interpretation and recognition interface. LIRI is a command line node app that takes in parameters and gives you back data.
