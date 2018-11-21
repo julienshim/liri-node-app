@@ -36,7 +36,7 @@ Usage: `node liri.js <command> [<args>]`
 
 `my-tweets`
 
-Retrieves lasts 20 tweets from hgd_wd ('Hong Gildong') test twitter account and siplays them.
+Retrieves lasts 20 tweets from test twitter account and siplays them.
 
 `spotify-this-song [<song>]`
 
